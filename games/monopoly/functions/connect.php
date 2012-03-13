@@ -1,6 +1,6 @@
 <?php
 function dbConnect(){
-	$conn = oci_connect('monopoly', 'ljcephas', 'localhost/XE');
+	$conn = oci_connect('monopoly', 'test', 'localhost/XE');
 	
 	if(!$conn){
 		$err = oci_error();
