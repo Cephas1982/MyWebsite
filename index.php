@@ -69,7 +69,7 @@
 	<div id="navitabs">
 		<h2 class="hide">Sample navigation menu:</h2>
 		<a class="activenavitab" href="index.php">Home</a><span class="hide"> | </span>
-		<a class="navitab" href="#">Projects</a><span class="hide"> | </span>
+		<a class="navitab" href="games/monopoly/index.php" target="_parent">Projects</a><span class="hide"> | </span>
 		<a class="navitab" href="#">About Me</a><span class="hide"> | </span>
 		<!-------------------------
 		<a class="navitab" href="#">Fourth</a><span class="hide"> | </span>
