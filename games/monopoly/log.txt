@@ -1,0 +1,6 @@
+﻿3/14
+Learned a bit about jquery and css layouts tonight. And yes I love street fighter.
+TODO list:
+calculate movement around the board by passing a variable (the dice roll value)
+40 spaces - will need to store or calculate each position
+
