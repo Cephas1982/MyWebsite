@@ -3,4 +3,6 @@ Thumbs.db
 #Ignore files 
 *.exe
 [Ss]andbox*/
+[Pp]hp/Connect.php
+[Gg]ames/monopoly/functions/connect.php
 .metadata*/
