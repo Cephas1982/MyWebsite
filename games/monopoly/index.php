@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="text/html, charset=utf-8, target-densitydpi=device-dpi, width=device-width, height=device-height" http-equiv="Content-Type" name="viewport" />
 
 <script type="text/javascript" src="..\..\..\jscript\jquery.js"></script>
 <script type="text/javascript" src="jscript/movement.js"></script>
@@ -12,28 +12,17 @@
 <link href="css/monopolyCSS.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 .playerView {
-	overflow: auto;
 	font-family: Century;
 	float: left;
-	width: 50%;
-	height: 580px;
-	background-color: #FFFFCC;
-	position: fixed;
-	right: 0px;
-}
-.mainContainer {
-	width: 100%;
-	background-color: #FFFFCC;
-	float: none;
-	position: absolute;
-	clear: none;
+	width: 46%;
+	height: 567px;
 }
 .boardView {
-	overflow: visible;
 	float: left;
-	width: 50%;
-	height: 580px;
+	width: 52%;
+	height: 567px;
 	z-index: 0;
+	padding-right: 20px;
 }
 .footer {
 	text-align: center;
@@ -43,54 +32,60 @@
 }
 .header {
 	width: 100%;
-	text-align: center;	
+	text-align: center;
+	background-color: #C0C0C0;
 }
 .player1 {
 	position: absolute;
-	top: 10px;
+	top: 460px;
 	z-index: 2;
 	visibility: visible;
-	left: 0px;
+	left: 550px;
+}
+.player2 {
+	position: absolute;
+	top: 530px;
+	z-index: 2;
+	visibility: visible;
+	left: 580px;
 }
 .playerInfo {
-	overflow: auto;
 	float: left;
+	width: 100%;
 }
+.body {
+	background-color: #FFFFCC;
+	width: 1200px;
+}
+
 </style>
 </head>
 
-<body>
+<body class="body">
 <div id="status" class="header">
-	Version 0.002 -- <a href="log.txt" target="_blank">change log</a>
+	Version 0.10 -- <a href="log.txt" target="_blank">change log</a>
 </div>
-
-<div id="mainBody" class="mainContainer">
+	<img  id="player1" alt="ryu" class="player1" height="75" src="images/ryu_board_piece.jpg" width="39" />
+	<img src="images/elephant_board_piece.png" class="player2" height="40" width="40" />
 	<div id="boardView" class="boardView">
-		<img  id="player1" alt="ryu" class="player1" height="224" src="images/ryu.png" width="118" /><?php include("includes/board_layout.php"); ?></div>
-	
+		<?php include("includes/board_layout.php"); ?></div>
+
 	<div id="playerView" class="playerView">
 		
 		<div id="playerInfo" class="playerInfo">
-			<p>Player info here</p>
 			<?php
-			//for each player create a div and grab data from sever
-			//check if player exists and if they do:
-				echo "Player1 name  |  Money | -put view property button here-" . "<br />";
-				echo "Player2 name  |  Money | -put view property button here-" . "<br />";
-				echo "Player3 name  |  Money | -put view property button here-" . "<br />";
-				echo "Player4 name  |  Money | -put view property button here-" . "<br />";//TODO loop these						
+				include("php/playerInfo.php");
 			?>
 		</div>
 
 	</div>
 	
 	
+	
+	
 	<div id="footer" class="footer">
-		Movement is working. Click the board.</div>
+		Movement is working. Click the board.
+	</div>
 	
-	
-</div>
-
 </body>
-
 </html>

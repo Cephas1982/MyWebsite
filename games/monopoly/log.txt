@@ -1,4 +1,7 @@
-﻿3/14
+﻿3/18
+Cleaned up the layout. Started to play with jquery and it's awesome. Now that I have most things placed where I want I will focus on writing game logic.
+
+3/14
 Learned a bit about jquery and css layouts tonight. And yes I love street fighter.
 TODO list:
 calculate movement around the board by passing a variable (the dice roll value)

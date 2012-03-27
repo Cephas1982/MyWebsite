@@ -4,37 +4,16 @@
 	
 	<?php include("php/Connect.php"); 
 		  include("php/Updates.php"); 
+		  include("php/Achievements.php");
 	?>
 	<?php $updateCounter = 2; ?>
 	
-	<script type="text/javascript" >
-	function addUpdates(){
-		var xmlhttp;
-		//var counter;
-		
-		if(typeof counter == 'undefined')
-			counter = 2;
-		
-		counter+= 2;
+	<script type="text/javascript" src="jscript/jquery.js"></script>
 
-		if (window.XMLHttpRequest)
-		  {// code for IE7+, Firefox, Chrome, Opera, Safari
-		  xmlhttp=new XMLHttpRequest();
-		  }
-		else
-		  {// code for IE6, IE5
-		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-		  }
-		xmlhttp.onreadystatechange=function(){
-		  if (xmlhttp.readyState==4 && xmlhttp.status==200){
-		  	//		document.write("aadfadfa");
-		    document.getElementById("updates").innerHTML=xmlhttp.responseText;
-		  }
-		}
-		xmlhttp.open("GET","php/ajaxTest.php?count=" + counter,true);
-		xmlhttp.send();
-	}
-	</script>
+	<script type="text/javascript" src="jscript/init.js"></script>
+	<script type="text/javascript" src="jscript/naviTabs.js"></script>
+	<script type="text/javascript" src="jscript/mainUpdates.js"></script>
+	<script type="text/javascript" src="jscript/achievements.js"></script>
 
 
 
@@ -68,9 +47,9 @@
 
 	<div id="navitabs">
 		<h2 class="hide">Sample navigation menu:</h2>
-		<a class="activenavitab" href="index.php">Home</a><span class="hide"> | </span>
-		<a class="navitab" href="games/monopoly/index.php" target="_parent">Projects</a><span class="hide"> | </span>
-		<a class="navitab" href="#">About Me</a><span class="hide"> | </span>
+		<a id ="homeTab" class="activenavitab" href="index.php">Home</a><span class="hide"> | </span>
+		<a id ="projectsTab" class="navitab" href="games/monopoly/index.php" target="_parent">Projects</a><span class="hide"> | </span>
+		<a id ="aboutMeTab" class="navitab" href="#">About Me</a><span class="hide"> | </span>
 		<!-------------------------
 		<a class="navitab" href="#">Fourth</a><span class="hide"> | </span>
 		<a class="navitab" href="#">Fifth</a><span class="hide"> | </span>
@@ -81,34 +60,29 @@
 	
 	<div id="desc">
 		<h2>Welcome</h2>
-		<p>I am a student working towards becoming a professional developer.</p>
+		<p>Will code for food!</p>
 		
 		<!-----------------------
 		<p class="right"><a href="#">Sample link</a> &raquo;</p>
 		!------------------------>
 	</div>
+	
+
 
 	<div id="main" class="auto-style1">
-		<h2>Updates</h2>
-		
-		<div id="updates" class="auto-style1">
-			<?php getUpdates($updateCounter);//updates are pulled from database	?>
-		</div>
-<!----------------------------------------------------------
-		<p class="timestamp">March 1, 2012</p>
-		<p> Fixed some routing issues!</p>
-		<p class="update"> <img height="152" src="images/cheese.jpg" width="150" /></p>
-		<p class="timestamp">Feburary 28, 2012</p>
-		<p>Day1, this web template is up and running! However, my headache is 
-		still in full effect...</p>
-!---------------------------------------------------------->
-		<div class="auto-style2">
-			<input name="addComments1" type="button" onclick="addUpdates()" value="show more comments" />
-		</div>
+			
+
+
+	<?php include("html/updateContent.html");
+		  include("html/projectsContent.html");
+		  include("html/aboutMeContent.html");
+	?>
+
+
 	</div>
 
 	<div id="sidebar">
-		<h3 class="auto-style1">My Links</h3>
+		<h3 class="auto-style1">Links</h3>
 		<ul class="sidelink">
 			<li><a href="http://www.facebook.com/lee.cephas/">Facebook</a></li>
 			<li><a href="http://www.youtube.com/user/cephas1892">Youtube channel</a></li>
@@ -129,6 +103,16 @@
     
 	<div id="footer">
 		<p><strong>© 2012 <a href="#">Lee Cephas</a></strong> | <a href="#">Admin</a></p>
+	</div>
+	
+	
+	
+	<div id="achievement" class="achievement">
+	<?php
+	//post achievement here	
+	echo "Achievement Unlocked!" . "1/" . $achievement_count['MAXCOUNT'] . "<br />";	
+	echo $achievement_result['DESCRIP'];
+	?>
 	</div>
 
 </div>
