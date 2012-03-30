@@ -1,4 +1,32 @@
-﻿function addUpdates(){
+﻿//this will show updates once php is done
+var showUpdates = function(response){
+					$("#updatesContent").html(response);
+					};
+
+//AJAX - will add in updates when the button is clicked	
+$(document).ready(function(){
+	$("#updateButton").click(function(){
+		if(typeof counter == 'undefined')
+			counter = 2;
+		
+		counter+= 2;
+		var dataString = 'count=' + counter;
+
+		$("#updatesContent").load("/php/retrieveUpdates.php", dataString, showUpdates);
+	});
+
+return false;
+});
+	
+	
+
+
+
+
+
+	
+/********************** OLD WAY
+function addUpdates(){
 		var xmlhttp;
 		//var counter;
 		
@@ -23,3 +51,4 @@
 		xmlhttp.open("GET","php/ajaxTest.php?count=" + counter,true);
 		xmlhttp.send();
 	}
+*/

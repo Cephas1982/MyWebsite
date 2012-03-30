@@ -1,3 +1,4 @@
+<?php include("php/Session.php") ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -11,6 +12,7 @@
 	<script type="text/javascript" src="jscript/jquery.js"></script>
 
 	<script type="text/javascript" src="jscript/init.js"></script>
+	<script type="text/javascript" src="jscript/login.js"></script>
 	<script type="text/javascript" src="jscript/naviTabs.js"></script>
 	<script type="text/javascript" src="jscript/mainUpdates.js"></script>
 	<script type="text/javascript" src="jscript/achievements.js"></script>
@@ -25,6 +27,31 @@
 	<link rel="stylesheet" type="text/css" href="CSS/andreas02.css" media="screen,projection" />
 	<link rel="stylesheet" type="text/css" href="CSS/print.css" media="print" />
 	<title>Lee Cephas</title>
+	
+	<style type="text/css">
+	.auto-style3 {
+		width: 248px;
+		right: 22px;
+		position: absolute;
+	}
+	.loginField {
+		width: 200px;
+		position: absolute;
+		right: 15px;
+	}
+	.auto-style4 {
+		border-radius: 10px;
+		font-size: medium;
+		background-color: #FFFFFF;
+		z-index: 3;
+		position: absolute;
+		width: 300px;
+		height: 148px;
+		left: 0px;
+		top: 475px;
+		text-align: left;
+	}
+	</style>
 	
 </head>
 
@@ -50,6 +77,7 @@
 		<a id ="homeTab" class="activenavitab" href="index.php">Home</a><span class="hide"> | </span>
 		<a id ="projectsTab" class="navitab" href="games/monopoly/index.php" target="_parent">Projects</a><span class="hide"> | </span>
 		<a id ="aboutMeTab" class="navitab" href="#">About Me</a><span class="hide"> | </span>
+		<a id ="loginTab" class="navitab" href="#">Log in</a><span class="hide"> | </span>
 		<!-------------------------
 		<a class="navitab" href="#">Fourth</a><span class="hide"> | </span>
 		<a class="navitab" href="#">Fifth</a><span class="hide"> | </span>
@@ -103,6 +131,7 @@
     
 	<div id="footer">
 		<p><strong>© 2012 <a href="#">Lee Cephas</a></strong> | <a href="#">Admin</a></p>
+		<p>page views <?php echo $_SESSION['views']?></p>
 	</div>
 	
 	
@@ -110,12 +139,23 @@
 	<div id="achievement" class="achievement">
 	<?php
 	//post achievement here	
-	echo "Achievement Unlocked!" . "1/" . $achievement_count['MAXCOUNT'] . "<br />";	
-	echo $achievement_result['DESCRIP'];
+	//echo "Achievement Unlocked!" . "1/" . $achievement_count['MAXCOUNT'] . "<br />";	
+	//echo $achievement_result['DESCRIP'];
 	?>
 	</div>
 
+	
+
 </div>
+	<div id="loginForm_div" class="auto-style4">
+		<form id="loginForm" method="" action=""><p class="auto-style2">please log in </p>
+			Nickname:<input name="nick" id="nick" type="text" class="loginField" /> <br /><br />
+			Email: <input name="email" id="email" type="text" class="loginField" /> <br /> <br />
+			<button type="submit" id="loginButton" name="loginButton" class="auto-style3">submit</button>
+		</form>
+	</div>
+	<div id="backgroundPopup"></div>
+	<div id="login_success_div" class="loginSuccess">Thank you!</div>
 
 	<?php 
 	//disconnect from database

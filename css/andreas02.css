@@ -116,7 +116,8 @@ ul.sidelink li a:hover {border-style: none;
 .hide {display:none;}
 .auto-style1 {text-align: left;
 }
-.auto-style2 {text-align: center;
+.loginSuccess {
+	text-align: center;
 }
 
 /* Updates formatting */
@@ -140,4 +141,26 @@ ul.sidelink li a:hover {border-style: none;
 	border-style: solid;
 	border-width: thin;
 	padding: 10px 5px 10px 5px;
+	visibility: hidden;
+}
+.popAndBlur {
+	font-size: medium;
+	background-color: #FFFFFF;
+	z-index: 3;
+	position: absolute;
+	width: 300px;
+	height: 100px;
+}
+
+#backgroundPopup{
+	display: none;
+	position: fixed;
+	position: absolute; /* hack for internet explorer 6*/;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #000000;
+	
+	z-index: 2;
 }
