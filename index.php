@@ -10,13 +10,16 @@
 	<?php $updateCounter = 2; ?>
 	
 	<script type="text/javascript" src="jscript/jquery.js"></script>
+	<script type="text/javascript" src="jscript/jquery.cookie.js"></script>
+	
 
 	<script type="text/javascript" src="jscript/init.js"></script>
 	<script type="text/javascript" src="jscript/login.js"></script>
 	<script type="text/javascript" src="jscript/naviTabs.js"></script>
 	<script type="text/javascript" src="jscript/mainUpdates.js"></script>
 	<script type="text/javascript" src="jscript/achievements.js"></script>
-
+	<script type="text/javascript" src="jscript/mainTemplateLooks.js"></script>	
+	
 
 
 	
@@ -29,29 +32,9 @@
 	<title>Lee Cephas</title>
 	
 	<style type="text/css">
-	.auto-style3 {
-		width: 248px;
-		right: 22px;
-		position: absolute;
-	}
-	.loginField {
-		width: 200px;
-		position: absolute;
-		right: 15px;
-	}
-	.auto-style4 {
-		border-radius: 10px;
-		font-size: medium;
-		background-color: #FFFFFF;
-		z-index: 3;
-		position: absolute;
-		width: 300px;
-		height: 148px;
-		left: 0px;
-		top: 475px;
-		text-align: left;
-	}
 	</style>
+	
+	<link href="css/mainPage_template.css" rel="stylesheet" type="text/css">
 	
 </head>
 
@@ -67,6 +50,14 @@
 </div>
 !------------------------------------------------------------------------------->
 <div id="container">
+
+	<div id="user_bar_div" class="user_status_bar_div">
+		<div id ="loginTab" class="statusBar_tab_div">login/logout</div>
+		<div id="userBarTab2" class="statusBar_tab_div">account</div>
+		<div id="userBarTab3" class="statusBar_tab_div">contact me</div>
+		<div id="userBarTab4" class="statusBar_tab_div">post msg</div>	
+	</div>
+	
 	<div id="logo">
 		<h1><a href="index.php">Lee Cephas</a></h1>
 		<p>student/developer</p>
@@ -77,8 +68,10 @@
 		<a id ="homeTab" class="activenavitab" href="index.php">Home</a><span class="hide"> | </span>
 		<a id ="projectsTab" class="navitab" href="games/monopoly/index.php" target="_parent">Projects</a><span class="hide"> | </span>
 		<a id ="aboutMeTab" class="navitab" href="#">About Me</a><span class="hide"> | </span>
-		<a id ="loginTab" class="navitab" href="#">Log in</a><span class="hide"> | </span>
+
 		<!-------------------------
+		
+		<a id ="loginTab" class="navitab" href="#">Log in</a><span class="hide"> | </span>		
 		<a class="navitab" href="#">Fourth</a><span class="hide"> | </span>
 		<a class="navitab" href="#">Fifth</a><span class="hide"> | </span>
 		<a class="navitab" href="#">Sixth</a><span class="hide"> | </span>
@@ -97,7 +90,7 @@
 	
 
 
-	<div id="main" class="auto-style1">
+	<div id="main" class="left-align">
 			
 
 
@@ -110,7 +103,7 @@
 	</div>
 
 	<div id="sidebar">
-		<h3 class="auto-style1">Links</h3>
+		<h3 class="left-align">Links</h3>
 		<ul class="sidelink">
 			<li><a href="http://www.facebook.com/lee.cephas/">Facebook</a></li>
 			<li><a href="http://www.youtube.com/user/cephas1892">Youtube channel</a></li>
@@ -147,13 +140,45 @@
 	
 
 </div>
-	<div id="loginForm_div" class="auto-style4">
-		<form id="loginForm" method="" action=""><p class="auto-style2">please log in </p>
-			Nickname:<input name="nick" id="nick" type="text" class="loginField" /> <br /><br />
-			Email: <input name="email" id="email" type="text" class="loginField" /> <br /> <br />
-			<button type="submit" id="loginButton" name="loginButton" class="auto-style3">submit</button>
+	<div id="loginForm_div" class="loginForm_div">
+		<form id="loginForm" method="" action="">
+			<p id="loginError_p" style="text-align: center">Invalid username or password</p>
+			
+			<div id="username_div" class="login_and_reg_divs">
+				<lable id="username">Username:</lable><input name="username" id="username" type="text" maxlength="20" class="registerField" /> 
+				<img id="username_x" src="images/red-x_small.png" alt="X" class="loginStatusPic"/>
+			</div>
+			
+			<div id="password_div" class="login_and_reg_divs">
+				<lable id="password">Password:</lable><input name="password" id="password" type="password" maxlength="20" class="registerField" />
+				<img id="password_x" src="images/red-x_small.png" alt="X" class="loginStatusPic"/>
+			</div>
+			
+			<div id="confirmPassword_div" class="login_and_reg_divs">
+				<lable id="confirmPassword">Confirm Password:</lable><input name="confirmPassword" id="confirmPassword" type="password" maxlength="30" class="registerField" />
+				<img id="confirmPassword_x" src="images/red-x_small.png" alt="X" class="loginStatusPic"/>
+			</div>
+			
+			<div id="email_div" class="login_and_reg_divs">
+				<lable id="email">Email:</lable><input name="email" id="email" type="text" maxlength="30" class="registerField" />
+				<img id="email_x" src="images/red-x_small.png" alt="X" class="loginStatusPic"/>
+			</div>
+			
+			<div id="confirmEmail_div" class="login_and_reg_divs">
+				<lable id="confirmEmail">Confirm Email:</lable><input name="confirmEmail" id="confirmEmail" type="text" maxlength="20" class="registerField" />
+				<img id="confirmEmail_x" src="images/red-x_small.png" alt="X" class="loginStatusPic"/>
+			</div>
+
+			<div id="buttons_div">
+				<div id="loginButton_div" class="login_and_reg_divs"><button type="submit" id="loginButton" name="loginButton" class="loginButtons">login</button></div>
+				<div id="submitButton_div" class="login_and_reg_divs"><button type="submit" id="submitButton" name="submitButton" class="loginButtons">submit</button></div>		
+				<div id="registerButton_div" class="login_and_reg_divs"><button type="submit" id="registerButton" name="registerButton" class="loginButtons">register</button></div>
+			</div>
 		</form>
 	</div>
+	
+	
+	
 	<div id="backgroundPopup"></div>
 	<div id="login_success_div" class="loginSuccess">Thank you!</div>
 
