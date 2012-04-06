@@ -1,0 +1,45 @@
+﻿.user_status_bar_div {
+	background-color: #4B4F52;
+	color: #FFFFFF;
+	font-weight: bold;
+	width: 350px;
+	float: right;
+	height: 15px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.statusBar_tab_div {
+	width: auto;
+	float: right;
+	margin-right: 5px;
+	margin-left: 5px;
+	color: #C0C0C0;
+}
+.login_and_reg_divs {
+	padding: 10px 0px 0px 10px;
+	font-size: medium;
+	height: 20px;
+}
+.loginButtons {
+		width: 220px;
+		position: absolute;
+		left: 70px;
+	}
+.loginForm_div {
+		border-radius: 20px;
+		z-index: 3;
+		position: absolute;
+		width: 350px;
+		height: 250px;
+		background-color: #FFFFFF;
+	}
+.loginStatusPic {
+	position: absolute;
+	right: 15px;
+	visibility: hidden;
+}
+.registerField {
+		width: 150px;
+		position: absolute;
+		right: 50px;
+	}
